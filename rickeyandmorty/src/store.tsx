@@ -8,8 +8,12 @@ interface IState  {
 
 interface IAction {
                type : string,
-               payload : any
+               value : any
 }
+
+
+// state store
+
 
 const initialState : IState =  { 
                episodes : [],
@@ -18,17 +22,21 @@ const initialState : IState =  {
 };
 
 
+
+// store context api
+
 export const Store= React.createContext<IState | any>(initialState)
 
 // https://api.tvmaze.com/singlesearch/shows?q=rick-&-morty&embed=episodes  api Endpoint
 
 
 
+// reducer which handlers operations
 const reducer=(state : IState , action : IAction):IState=>{
       switch (action.type){
 
                      case 'FETCH_DATA':{
-                                    return {...state , episodes : action.payload}
+                                    return {...state , episodes : action.value}
                      }
                      default : {
                                     return state
