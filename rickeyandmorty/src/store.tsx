@@ -12,7 +12,7 @@ interface IAction {
 }
 
 
-// state store
+// state store  
 
 
 const initialState : IState =  { 
